@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.todos {
+  width: min(500px, 90%);
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2rem;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: cardEnter 0.5s ease both;
+}
+
+.todos__header {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.todos__header h1 {
+  font-size: 1.5rem;
+  color: #2d2d2d;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.todos__header input {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.todos__header input:focus {
+  border-color: #6c63ff;
+}
+
+.todos__list {
+  padding: 1rem 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-height: 320px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.todos__item {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-radius: 10px;
+  animation: itemEnter 0.35s ease both;
+  transition: background 0.2s;
+}
+
+.todos__item:hover {
+  background: #eef0fa;
+  transform: translateX(2px);
+}
+
+.todos__item h2.completed {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.todos span {
+  font-size: 1.5rem;
+  color: #6c63ff;
+  user-select: none;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.todos span:active {
+  transform: scale(0.8);
+}
+
+.todos__item h2 {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  word-break: break-word;
+  transition: color 0.2s;
+}
+
+.todos__item button {
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.todos__item button:hover {
+  background: #e85555;
+}
+
+.todos__item button:active {
+  transform: scale(0.93);
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btns button {
+  background: #eef0fa;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #555;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.btns button:hover {
+  background: #6c63ff;
+  color: #fff;
+}
+
+.btns button:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.todos > span {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  color: #777;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #777;
+  animation: itemEnter 0.35s ease both;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes itemEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
